@@ -2,31 +2,31 @@ import { Event } from '../types';
 
 export const events: Event[] = [
   {
-    title: "Cérémonie",
-    date: "15 Juin 2026",
-    time: "14:30",
-    location: "Église Saint-Pierre",
-    description: "La cérémonie religieuse aura lieu dans la magnifique église Saint-Pierre."
+    title: "Cérémonie Laïque",
+    date: "23 Mai 2026",
+    time: "16:30",
+    location: "Manoir de Gouézac",
+    description: "La cérémonie laïque aura lieu dans le magnifique parc du manoir de Gouézac."
   },
   {
     title: "Vin d'honneur",
-    date: "15 Juin 2026",
-    time: "16:00",
-    location: "Château des Roses",
+    date: "23 Mai 2026",
+    time: "18:00",
+    location: "Manoir de Gouézac",
     description: "Un moment convivial pour célébrer notre union avec tous nos invités."
   },
   {
     title: "Dîner & Soirée",
-    date: "15 Juin 2026",
-    time: "19:00",
-    location: "Château des Roses",
+    date: "23 Mai 2026",
+    time: "20:00",
+    location: "Manoir de Gouézac",
     description: "Un dîner gastronomique suivi d'une soirée dansante."
   },
   {
     title: "Brunch",
-    date: "16 Juin 2026",
-    time: "11:00",
-    location: "Château des Roses",
+    date: "23 Mai 2026",
+    time: "10:30",
+    location: "Manoir de Gouézac",
     description: "Un brunch décontracté pour prolonger les festivités."
   }
 ];
