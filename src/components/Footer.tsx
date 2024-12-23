@@ -10,7 +10,7 @@ const Footer = () => {
             <Heart className="h-5 w-5 text-rose-500" />
             <span className="text-lg font-serif">Alex & Sophie</span>
           </div>
-          <p className="text-gray-500 text-sm">15 Juin 2026</p>
+          <p className="text-gray-500 text-sm">23 Mai 2026</p>
         </div>
       </div>
     </footer>
