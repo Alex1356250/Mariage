@@ -24,7 +24,7 @@ export const events: Event[] = [
   },
   {
     title: "Brunch",
-    date: "23 Mai 2026",
+    date: "24 Mai 2026",
     time: "10:30",
     location: "Manoir de Gouézac",
     description: "Un brunch décontracté pour prolonger les festivités."

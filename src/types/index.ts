@@ -13,6 +13,7 @@ export interface Accommodation {
   email: string;
   website: string;
   description: string;
+  capacity: string;
   distance: string;
   image: string;
 }

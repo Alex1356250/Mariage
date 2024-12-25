@@ -1,13 +1,18 @@
 import React from 'react';
 import { accommodations } from '../data/accommodations';
-import { Phone, Mail, Globe, MapPin } from 'lucide-react';
+import { Phone, Mail, Globe, MapPin, Bed } from 'lucide-react';
 
 const Hebergements = () => {
+
   return (
     <div className="min-h-screen pt-20 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-4xl font-serif text-center text-gray-800 mb-12">Hébergements</h1>
-        
+        <div className="space-y-4 text-center">
+          <p className="text-gray-600">
+            Vous trouverez ci-dessous une liste d'hébergements à proximité du lieu de la cérémonie.
+            </p>
+          </div>
         <div className="grid gap-8 md:grid-cols-2">
           {accommodations.map((accommodation, index) => (
             <div
@@ -26,6 +31,10 @@ const Hebergements = () => {
                 </div>
                 <p className="text-gray-600">{accommodation.description}</p>
                 <div className="space-y-2 text-gray-600">
+                  <div className="flex items-center space-x-2">
+                    <Bed className="h-5 w-5 text-rose-500" />
+                    <span>{accommodation.capacity}</span>
+                  </div>
                   <div className="flex items-center space-x-2">
                     <MapPin className="h-5 w-5 text-rose-500" />
                     <span>{accommodation.address}</span>
