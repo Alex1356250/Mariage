@@ -2,16 +2,6 @@ import { useState } from 'react';
 import { Send } from 'lucide-react';
 import emailjs from 'emailjs-com';
 
-type FormData = {
-  name: string;
-  email: string;
-  message: string;
-};
-
-type VITE_EMAILJS_PUBLIC_KEY = string;
-type VITE_EMAILJS_SERVICE_ID = string;
-type VITE_EMAILJS_TEMPLATE_ID = string;
-
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -23,8 +13,6 @@ const Contact = () => {
     e.preventDefault();
     // Handle form submission here
     const { VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, VITE_EMAILJS_PUBLIC_KEY } = import.meta.env;
-
-    console.log(import.meta.env.VITE_EMAILJS_SERVICE_ID);
 
     emailjs
       .send(
@@ -51,8 +39,6 @@ const Contact = () => {
       email: "",
       message: "",
     });
-
-    console.log("Form submitted:", formData);
   };
 
 
