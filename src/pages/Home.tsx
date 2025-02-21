@@ -1,4 +1,3 @@
-import React from 'react';
 import { Calendar } from 'lucide-react';
 import { AddToCalendarButton } from 'add-to-calendar-button-react';
 

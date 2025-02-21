@@ -1,4 +1,3 @@
-import React from 'react';
 import { accommodations } from '../data/accommodations';
 import { Phone, Mail, Globe, MapPin, Bed } from 'lucide-react';
 import wip from '../public/media/wip.png';
