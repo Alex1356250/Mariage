@@ -1,5 +1,16 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Send } from 'lucide-react';
+import emailjs from 'emailjs-com';
+
+type FormData = {
+  name: string;
+  email: string;
+  message: string;
+};
+
+type VITE_EMAILJS_PUBLIC_KEY = string;
+type VITE_EMAILJS_SERVICE_ID = string;
+type VITE_EMAILJS_TEMPLATE_ID = string;
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -11,10 +22,39 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission here
-    console.log('Form submitted:', formData);
-    // Reset form
-    setFormData({ name: '', email: '', message: '' });
+    const { VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, VITE_EMAILJS_PUBLIC_KEY } = import.meta.env;
+
+    console.log(import.meta.env.VITE_EMAILJS_SERVICE_ID);
+
+    emailjs
+      .send(
+        VITE_EMAILJS_SERVICE_ID,
+        VITE_EMAILJS_TEMPLATE_ID,
+        formData,
+        VITE_EMAILJS_PUBLIC_KEY,
+      )
+      .then(
+        (result) => {
+          console.log("Message envoyé : ", result.text);
+          alert("Votre message a bien été envoyé !");
+        },
+        (error) => {
+          console.error("Erreur : ", error.text);
+          alert("Une erreur est survenue. Veuillez réessayer.");
+        },
+      );
+
+
+    // Réinitialiser le formulaire
+    setFormData({
+      name: "",
+      email: "",
+      message: "",
+    });
+
+    console.log("Form submitted:", formData);
   };
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -25,7 +65,7 @@ const Contact = () => {
     <div className="min-h-screen pt-20 pb-16">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-4xl font-serif text-center text-gray-800 mb-12">Contact</h1>
-        
+
         <div className="bg-white rounded-lg shadow-md p-8">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
@@ -42,7 +82,7 @@ const Contact = () => {
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-rose-500 focus:ring-rose-500"
               />
             </div>
-            
+
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                 Email
@@ -57,7 +97,7 @@ const Contact = () => {
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-rose-500 focus:ring-rose-500"
               />
             </div>
-            
+
             <div>
               <label htmlFor="message" className="block text-sm font-medium text-gray-700">
                 Message
@@ -72,7 +112,7 @@ const Contact = () => {
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-rose-500 focus:ring-rose-500"
               />
             </div>
-            
+
             <button
               type="submit"
               className="w-full flex justify-center items-center space-x-2 py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-rose-500 hover:bg-rose-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-500"
